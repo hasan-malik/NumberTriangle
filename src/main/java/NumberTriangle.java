@@ -108,6 +108,7 @@ public class NumberTriangle {
         // are more convenient to work with when reading the file contents.
         InputStream inputStream = NumberTriangle.class.getClassLoader().getResourceAsStream(fname);
         BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+        // comment NEW COMMENT
 
 
         // TODO define any variables that you want to use to store things
