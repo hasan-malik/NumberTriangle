@@ -195,5 +195,6 @@ public class NumberTriangle {
 
 //        System.out.println(mt.retrieve("rrrrrrrrllrrrl")); // 53
 //        System.out.println(mt.retrieve(""));
+        // should be done now!
     }
 }
