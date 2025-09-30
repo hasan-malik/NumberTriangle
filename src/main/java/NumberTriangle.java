@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.Arrays;
 import java.util.ArrayList;
 
 /**
@@ -149,6 +148,7 @@ public class NumberTriangle {
 
                 line = br.readLine();
 
+
             }
 
             if (line != null) {
@@ -156,7 +156,6 @@ public class NumberTriangle {
                 for (String num: splittedLine) {
                     lineNumbers2.add(new NumberTriangle(Integer.parseInt(num)));
                 }
-
 
                 for (int i = 0; i < lineNumbers.size(); i++) {
                     lineNumbers.get(i).setLeft(lineNumbers2.get(i));
@@ -173,6 +172,7 @@ public class NumberTriangle {
 
             lineNumbers2.clear();
 
+
             line = br.readLine();
 
         }
@@ -182,19 +182,24 @@ public class NumberTriangle {
 
     public static void main(String[] args) throws IOException {
 
-        NumberTriangle mt = NumberTriangle.loadTriangle("input_tree.txt");
-//
-        // [not for credit]
-        // you can implement NumberTriangle's maxPathSum method if you want to try to solve
-        // Problem 18 from project Euler [not for credit]
+
+        NumberTriangle mt = NumberTriangle.loadTriangle("little_tree.txt");
+        System.out.println(mt);
+//         [not for credit]
+//         you can implement NumberTriangle's maxPathSum method if you want to try to solve
+//         Problem 18 from project Euler [not for credit]
+
         mt.maxSumPath();
         System.out.println(mt.getRoot());
 
         // my own test for loadTriangle. should give 1 2 3 4 5 5 6
 //        System.out.println(mt.root + ", " + mt.left.root + ", " + mt.right.root + ", " + mt.left.left.root + ", " + mt.left.right.root + ", " + mt.right.left.root + ", " + mt.right.right.root);
 
+
 //        System.out.println(mt.retrieve("rrrrrrrrllrrrl")); // 53
 //        System.out.println(mt.retrieve(""));
         // should be done now!
+
+
     }
 }
