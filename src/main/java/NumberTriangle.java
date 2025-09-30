@@ -89,9 +89,18 @@ public class NumberTriangle {
      *
      */
     public int retrieve(String path) {
-        // TODO implement this method
-        return -1;
+        StringBuilder builderPath = new StringBuilder(path);
+        if (builderPath.length() == 0) {
+            return root;
+        } else {
+            if (builderPath.charAt(0) == 'l') {
+                return left.retrieve(builderPath.substring(1));
+            } else  {
+                return right.retrieve(builderPath.substring(1));
+            }
+        }
     }
+
 
     /** Read in the NumberTriangle structure from a file.
      *
@@ -139,6 +148,7 @@ public class NumberTriangle {
 
                 line = br.readLine();
 
+
             }
 
             if (line != null) {
@@ -154,6 +164,15 @@ public class NumberTriangle {
 
             }
 
+//            lineNumbers = lineNumbers2 without aliasing:
+            lineNumbers.clear();
+            for (NumberTriangle numtriobj: lineNumbers2) {
+                lineNumbers.add(numtriobj);
+            }
+
+            lineNumbers2.clear();
+
+
             line = br.readLine();
 
         }
@@ -163,15 +182,24 @@ public class NumberTriangle {
 
     public static void main(String[] args) throws IOException {
 
+
         NumberTriangle mt = NumberTriangle.loadTriangle("little_tree.txt");
         System.out.println(mt);
 //         [not for credit]
 //         you can implement NumberTriangle's maxPathSum method if you want to try to solve
 //         Problem 18 from project Euler [not for credit]
+
         mt.maxSumPath();
         System.out.println(mt.getRoot());
 
         // my own test for loadTriangle. should give 1 2 3 4 5 5 6
 //        System.out.println(mt.root + ", " + mt.left.root + ", " + mt.right.root + ", " + mt.left.left.root + ", " + mt.left.right.root + ", " + mt.right.left.root + ", " + mt.right.right.root);
+
+
+//        System.out.println(mt.retrieve("rrrrrrrrllrrrl")); // 53
+//        System.out.println(mt.retrieve(""));
+        // should be done now!
+
+
     }
 }
